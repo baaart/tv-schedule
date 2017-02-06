@@ -3,7 +3,7 @@ module Api
     class SchedulesController < ApplicationController
       def index
         @schedules = Schedule.all
-        render json: @schedules
+        render json: @schedules, include: ['show.category', 'channel']
       end
 
       def show
