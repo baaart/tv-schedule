@@ -1,6 +1,6 @@
 module Api
   module V1
-    class UsersController < ApplicationController
+    class SchedulesController < ApplicationController
       def index
         @schedules = Schedule.all
         render json: @schedules
