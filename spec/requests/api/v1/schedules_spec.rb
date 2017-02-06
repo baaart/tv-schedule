@@ -13,7 +13,7 @@ describe 'Schedules API' do
   it 'retrieves a single schedule' do
     schedule = FactoryGirl.create(:schedule)
 
-    get '/api/v1/schedules/#{schedule.id}'
+    get "/api/v1/schedules/#{schedule.id}"
 
     expect(response).to be_success
     expect(json['schedule']['channel']['id']).to eq(schedule.channel.id)
