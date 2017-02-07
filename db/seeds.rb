@@ -1,9 +1,18 @@
-10.times do
-  category = Category.create({name: Faker::Name.name})
-  show = Show.create({ name: Faker::Book.title, description: Faker::Lorem.sentence(3), category: category })
-  channel = Channel.create({ name: Faker::Name.name })
-  schedule = Schedule.create({ channel: channel, show: show,
-                               start_time: Faker::Time.between(DateTime.now - 1, DateTime.now),
-                               end_time: Faker::Time.between(DateTime.now - 1, DateTime.now)
-                            })
+channels = ['FOX', 'BBC', 'Cartoon Network', 'HBO', 'HBO2', 'TVN', 'TVN7',
+            'VOX', 'TVP1', 'TVP2', 'TV POLONIA', 'KUCHNIA+', 'POLONIA 1']
+           .map { |c| Channel.create(name: c) }
+channels.each do |c|
+  time = Date.today.beginning_of_day + rand(4..6).hour
+  begin
+    duration = [45, 60, 90, 120].sample.minutes
+    genre = ['comedy', 'horror', 'series', 'sci-fi', 'romance', 'news'].sample
+    category = Category.create(name: genre)
+    show = Show.create(name: FFaker::Movie.title,
+                       description: FFaker::Lorem.sentence(3),
+                       category: category)
+    Schedule.create(channel: c, show: show,
+                    start_time: time,
+                    end_time: time + duration)
+    time += duration
+  end while time < Date.today.beginning_of_day + 22.hours
 end
