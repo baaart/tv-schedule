@@ -7,7 +7,7 @@ describe 'Schedules API' do
     get '/api/v1/schedules'
 
     expect(response).to be_success
-    expect(json['schedules'].length).to eq(10)
+    expect(json.length).to eq(10)
   end
 
   it 'retrieves a single schedule' do
@@ -16,7 +16,7 @@ describe 'Schedules API' do
     get "/api/v1/schedules/#{schedule.id}"
 
     expect(response).to be_success
-    expect(json['schedule']['channel']['id']).to eq(schedule.channel.id)
-    expect(json['schedule']['created_at']).to eq(nil)
+    expect(json['channel']['id']).to eq(schedule.channel.id)
+    expect(json['created_at']).to eq(nil)
   end
 end
