@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :channel do
-    name Faker::Book.name
+    name FFaker::Company.name
   end
 end
