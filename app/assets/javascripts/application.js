@@ -17,7 +17,6 @@
 //= require moment
 //= require fullcalendar.min.js
 //= require scheduler
-//= require demo
 //= require_tree .
 
 
