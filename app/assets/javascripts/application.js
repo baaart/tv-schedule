@@ -29,7 +29,6 @@ genres = { 'comedy':'green', 'horror':'red', 'series':'blue',
           'sci-fi':'brown', 'romance':'violet', 'news':'orange' }
 
 $( document ).ready(function() {
-  debugger;
   $('#calendar').fullCalendar({
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
     now: '2017-02-07',
