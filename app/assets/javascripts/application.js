@@ -18,12 +18,14 @@
 //= require fullcalendar
 //= require scheduler
 //= require_tree .
+
 $.urlParam = function (name) {
-              var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-              return results[1] || 0;
+                var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+                if (results) {
+                  return results[1] || 0;
+                }
+                return 0;
             }
-
-
 
 genres = { 'comedy':'green', 'horror':'red', 'series':'blue',
           'sci-fi':'brown', 'romance':'violet', 'news':'orange' }
@@ -52,7 +54,7 @@ $( document ).ready(function() {
     events: function(start,end,timezone,callback)
         {
             $.ajax({
-              url: '/api/v1/schedules',
+              url: $.urlParam('q') != 0 ? '/api/v1/schedules/search?q=' + $.urlParam('q')  :'/api/v1/schedules',
               dataType: "json",
               success: function(data) {
                 var events = [];
@@ -69,6 +71,7 @@ $( document ).ready(function() {
                 callback(events);
               },
               error: function (request, status, error) {
+                debugger;
                 alert(request.responseText);
                 callback([]);
               }
