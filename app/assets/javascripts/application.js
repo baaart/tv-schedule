@@ -15,15 +15,21 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require moment
-//= require fullcalendar.min.js
+//= require fullcalendar
 //= require scheduler
 //= require_tree .
+$.urlParam = function (name) {
+              var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+              return results[1] || 0;
+            }
+
 
 
 genres = { 'comedy':'green', 'horror':'red', 'series':'blue',
           'sci-fi':'brown', 'romance':'violet', 'news':'orange' }
 
 $( document ).ready(function() {
+  debugger;
   $('#calendar').fullCalendar({
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
     now: '2017-02-07',
