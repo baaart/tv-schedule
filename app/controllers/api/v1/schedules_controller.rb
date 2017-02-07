@@ -14,8 +14,11 @@ module Api
       def search
         @schedules = Schedule.joins(:show)
                              .joins(:channel)
-                             .where('shows.name ILIKE ? OR channels.name ILIKE ? ',
-                                    "%#{params[:q]}%", "%#{params[:q]}%")
+                             .joins(show: :category)
+                             .where("shows.name ILIKE ? OR \
+                                    channels.name ILIKE ? OR \
+                                    categories.name ILIKE ?",
+                                    "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
         render json: @schedules, include: ['show.category', 'channel']
       end
     end
