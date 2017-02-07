@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   root 'demo#schedule'
+  match '*path', to: 'error#catch_404', via: :all
 end
