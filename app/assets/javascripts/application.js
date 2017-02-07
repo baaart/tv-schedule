@@ -33,13 +33,11 @@ genres = { 'comedy':'green', 'horror':'red', 'series':'blue',
 $( document ).ready(function() {
   $('#calendar').fullCalendar({
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
-    now: '2017-02-07',
     aspectRatio: 1.8,
-    scrollTime: '00:00', // undo default 6am scrollTime
     header: {
       left: 'today prev,next',
       center: 'title',
-      right: 'timelineDay,timelineThreeDays,agendaWeek,month'
+      right: 'timelineDay,timelineThreeDays'
     },
     defaultView: 'timelineDay',
     timeFormat: 'H(:mm)',
