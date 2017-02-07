@@ -1,4 +1,5 @@
 class ShowSerializer < ActiveModel::Serializer
-  attributes :name, :description
+  attribute :name, key: 'title'
+  attribute :description
   belongs_to :category
 end

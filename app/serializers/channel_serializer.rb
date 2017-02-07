@@ -1,3 +1,4 @@
 class ChannelSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attribute :id
+  attribute :name, key: 'title'
 end
