@@ -69,8 +69,7 @@ $( document ).ready(function() {
                 callback(events);
               },
               error: function (request, status, error) {
-                debugger;
-                alert(request.responseText);
+                console.log('An error ocured on backend server')
                 callback([]);
               }
             });
