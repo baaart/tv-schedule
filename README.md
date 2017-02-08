@@ -1,24 +1,30 @@
-# README
+# TV Schedule
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple tv schedule API
 
-Things you may want to cover:
+## Set up the app
 
-* Ruby version
+    $ bundle install
+    $ rails db:create db:migrate
+    $ rails server
 
-* System dependencies
+## Seed database
+  $ rails db:seed
 
-* Configuration
+## Set up your Docker environment
+  Before running docker change config/database.yml
+  In development, set:
+  host: db
+  user: postgres
 
-* Database creation
+## Start the app
 
-* Database initialization
+    $ docker-compose up web
 
-* How to run the test suite
+## Bootstrap Data
 
-* Services (job queues, cache servers, search engines, etc.)
+    $ docker-compose run web rake db:bootstrap
 
-* Deployment instructions
+## Run Tests
 
-* ...
+    $ docker-compose run web rake
