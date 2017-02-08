@@ -12,7 +12,8 @@ Simple tv schedule API
     $ rails server
 
 ## Seed database
-  $ rails db:seed
+
+    $ rails db:seed
 
 ## Set up your Docker environment
 
