@@ -3,6 +3,7 @@
 Simple tv schedule API
 
 [DEMO](https://secret-taiga-43471.herokuapp.com)
+
 [DOCS](http://docs.tvschedule.apiary.io/)
 
 ## Set up the app
