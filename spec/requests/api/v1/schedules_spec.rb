@@ -19,4 +19,10 @@ describe 'Schedules API' do
     expect(json['channel']['id']).to eq(schedule.channel.id)
     expect(json['created_at']).to eq(nil)
   end
+
+  it 'returnes 404 when id not found' do
+    get '/api/v1/schedules/111'
+
+    expect(response.code).to eq('404')
+  end
 end
