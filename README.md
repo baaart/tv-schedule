@@ -2,6 +2,9 @@
 
 Simple tv schedule API
 
+[DEMO](https://secret-taiga-43471.herokuapp.com)
+[DOCS](http://docs.tvschedule.apiary.io/)
+
 ## Set up the app
 
     $ bundle install
@@ -12,10 +15,15 @@ Simple tv schedule API
   $ rails db:seed
 
 ## Set up your Docker environment
+
   Before running docker change config/database.yml
+
   In development, set:
+
+  ```
   host: db
   user: postgres
+  ```
 
 ## Start the app
 
