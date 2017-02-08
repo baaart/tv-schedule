@@ -4,4 +4,8 @@ class ApplicationController < ActionController::Base
     logger.error 'Routing error occurred'
     render json: '404 Not found', status: 404
   end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    render json: '404 Not found', status: 404
+  end
 end
